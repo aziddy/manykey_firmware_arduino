@@ -34,7 +34,7 @@
 #define BUTTON_COUNT 16
 byte buttonPins[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 16, 14, 15, 18, 19, 20, 21};
 
-boolean inKeySequenceMode = true;
+boolean inKeySequenceMode = false;
 
 // Serial Global Variables
 byte serialReadBuffer[SERIAL_BUFFER_LENGTH];
