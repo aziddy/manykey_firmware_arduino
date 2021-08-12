@@ -29,10 +29,12 @@
 #define SERIAL_QUERY_SETTINGS_COMMAND 0x02
 
 
+#define LED_PIN 2
+
 /* --------- Button declarations and functions */
 /* Edit list of pins and count here */
-#define BUTTON_COUNT 16
-byte buttonPins[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 16, 14, 15, 18, 19, 20, 21};
+#define BUTTON_COUNT 1
+byte buttonPins[] = {5};
 
 boolean inKeySequenceMode = false;
 
@@ -143,6 +145,9 @@ void setup() {
     }
     delay(1500);
   }
+
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, HIGH);
   
 }
 
