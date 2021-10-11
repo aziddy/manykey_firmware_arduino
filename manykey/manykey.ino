@@ -6,6 +6,7 @@
 
 #include <Keyboard.h>
 #include <EEPROM.h>
+#include <FastLED.h>
 
 #define DEBOUNCE_DELAY 10
 #define MAX_CHARS_PER_BUTTON 25
@@ -13,6 +14,15 @@
 #define SERIAL_BAUD_RATE 9600
 #define EEPROM_INTEGRITY_BYTE 123
 #define EEPROM_DATA_START 0x10
+
+
+/* FAST LED */
+#define NUM_LEDS 2
+#define DATA_PIN 15
+
+CRGB leds[NUM_LEDS];
+
+
 
 /* EEPROM that decides if keys on the macropad should be pressed in sequence */
 /* TODO: Update this to be on a per key basis */
@@ -125,6 +135,7 @@ void setup() {
   Keyboard.begin();
   Serial.begin(SERIAL_BAUD_RATE);
   Serial.setTimeout(10);
+  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
   initButtons();
   loadConfigFromEEPROM();
 
@@ -143,6 +154,16 @@ void setup() {
     }
     delay(1500);
   }
+
+  leds[0] = CRGB::Red; 
+  leds[0].maximizeBrightness(5);
+  FastLED.show(); 
+  delay(30); 
+
+  leds[1] = CRGB::Blue; 
+  leds[1].maximizeBrightness(5);
+  FastLED.show(); 
+  delay(30); 
   
 }
 
