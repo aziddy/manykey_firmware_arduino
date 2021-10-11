@@ -32,7 +32,7 @@
 /* --------- Button declarations and functions */
 /* Edit list of pins and count here */
 #define BUTTON_COUNT 5
-byte buttonPins[] = {9, 8, 7, 6, 5};
+byte buttonPins[] = {9, 8, 7, 5, 6};
 
 boolean inKeySequenceMode = false;
 
