@@ -31,8 +31,8 @@
 
 /* --------- Button declarations and functions */
 /* Edit list of pins and count here */
-#define BUTTON_COUNT 16
-byte buttonPins[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 16, 14, 15, 18, 19, 20, 21};
+#define BUTTON_COUNT 5
+byte buttonPins[] = {9, 8, 7, 6, 5};
 
 boolean inKeySequenceMode = false;
 
