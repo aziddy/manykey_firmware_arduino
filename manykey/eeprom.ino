@@ -31,3 +31,8 @@ void loadConfigFromEEPROM(){
     saveConfigToEEPROM();
   }
 }
+
+
+void loadKeySequenceModeFromEEPROM(){
+  EEPROM.get(EEPROM_IN_KEY_SEQUENCE_MODE_ADDRESS, inKeySequenceMode);
+}

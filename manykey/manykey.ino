@@ -127,6 +127,23 @@ void setup() {
   Serial.setTimeout(10);
   initButtons();
   loadConfigFromEEPROM();
+
+  loadKeySequenceModeFromEEPROM();
+
+  delay(1000);
+  if(!digitalRead(buttonPins[0])){
+    if(inKeySequenceMode){
+      Keyboard.print("HOTKEY MODE");
+      inKeySequenceMode = false;
+      EEPROM.write(EEPROM_IN_KEY_SEQUENCE_MODE_ADDRESS, inKeySequenceMode);
+    } else {
+      Keyboard.print("MACRO MODE");
+      inKeySequenceMode = true;
+      EEPROM.write(EEPROM_IN_KEY_SEQUENCE_MODE_ADDRESS, inKeySequenceMode);
+    }
+    delay(1500);
+  }
+  
 }
 
 void loop() {
